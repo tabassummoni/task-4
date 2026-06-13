@@ -202,13 +202,13 @@ app.post('/api/users/action', authAndStatusCheck, async (req, res) => {
 
 // Initialize database before spawning web instance
 connectDB().then(() => {
-  const server = app.listen(PORT, () => console.log(`Server serving seamlessly on port ${PORT}`));
+  const server = app.listen(PORT, () => console.log(`server serving seamlessly on port ${PORT}`));
 
   server.on('error', (err) => {
     if (err && err.code === 'EADDRINUSE') {
-      console.error(`Port ${PORT} is already in use. Start with a different port: PORT=5001 node Server.js`);
+      console.error(`Port ${PORT} is already in use. Start with a different port: PORT=5001 node server.js`);
     } else {
-      console.error('Server error:', err);
+      console.error('server error:', err);
     }
     process.exit(1);
   });
